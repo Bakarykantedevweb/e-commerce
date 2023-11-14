@@ -11,4 +11,9 @@ class FrontendController extends Controller
     {
         return view('frontend.index');
     }
+
+    public function terme()
+    {
+        return view('frontend.privacy-policy');
+    }
 }

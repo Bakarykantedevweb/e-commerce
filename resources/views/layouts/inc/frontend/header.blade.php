@@ -35,8 +35,8 @@
                     <div class="col-xl-3 col-lg-4">
                         <div class="header-info header-info-right">
                             <ul>
-                                <li><i class="fi-rs-key"></i><a href="login.html">Log In </a> / <a
-                                        href="register.html">Sign Up</a></li>
+                                <li><i class="fi-rs-key"></i><a href="{{ route('login') }}">Connexion </a> / <a
+                                        href="{{ route('register') }}">S'inscrire</a></li>
                             </ul>
                         </div>
                     </div>
@@ -632,10 +632,10 @@
                         <a href="contact.html"> Our location </a>
                     </div>
                     <div class="single-mobile-header-info">
-                        <a href="login.html">Log In </a>
+                        <a href="{{ route('login') }}">Connexion </a>
                     </div>
                     <div class="single-mobile-header-info">
-                        <a href="register.html">Sign Up</a>
+                        <a href="{{ route('register') }}">S'inscrire</a>
                     </div>
                     <div class="single-mobile-header-info">
                         <a href="#">(+1) 0000-000-000 </a>
