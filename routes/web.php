@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\RegisterController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,12 @@ use App\Http\Controllers\Frontend\RegisterController;
 |
 */
 
+Route::get('/', function () {
+    return view('auth.login');
+});
+
 Route::controller(FrontendController::class)->group(function(){
-    Route::get('/' , 'index');
+    Route::get('/home' , 'index');
     Route::get('/privacy-policy', 'terme')->name('privacy-policy');
 });
 
@@ -33,10 +38,13 @@ Route::controller(LoginController::class)->group(function(){
     Route::get('login','index')->name('login');
 });
 
-// Route Dashboard
-Route::prefix('admin')->group(function(){
+Auth::routes();
+
+Route::prefix('admin')->middleware(['auth'])->group(function(){
+    // Route Dashboard
     Route::controller(DashbordController::class)->group(function () {
-        
+
         Route::get('dashboard', 'index')->name('dashboard');
     });
 });
+/*Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/

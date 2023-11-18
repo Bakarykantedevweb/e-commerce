@@ -35,8 +35,21 @@
                     <div class="col-xl-3 col-lg-4">
                         <div class="header-info header-info-right">
                             <ul>
-                                <li><i class="fi-rs-key"></i><a href="{{ route('login') }}">Connexion </a> / <a
-                                        href="{{ route('register') }}">S'inscrire</a></li>
+                                <li>
+                                    <i class="fi-rs-key">
+
+                                    </i>
+                                    @if(Auth::check())
+                                        <a href="{{ route('login') }}">Connexion </a>
+                                         /
+                                        <a href="{{ route('register') }}">S'inscrire</a>
+
+                                    @else
+                                        <a href="">Deconnexion </a>
+                                    @endif
+
+
+                                </li>
                             </ul>
                         </div>
                     </div>
