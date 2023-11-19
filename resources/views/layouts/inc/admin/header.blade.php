@@ -74,7 +74,17 @@
                                         <li><a href="#"><span class="badge float-end badge-danger">42</span>Messages</a></li>
                                         <li role="separator" class="divider"></li>
                                         <li><a href="#">Account Settings</a></li>
-                                        <li><a href="/">Deconnexion</a></li>
+
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                Deconnexion
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
