@@ -18,7 +18,7 @@ class AdminMiddleware
     {
         if(!Auth::user()->roles_as == '1')
         {
-            return redirect('/home')->with('status', "Vous n'est pas Admin");
+            return redirect('/')->with('status', "Vous n'est pas Admin");
         }
 
         return $next($request);

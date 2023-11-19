@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\RegisterController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\AdminMiddleware\isAdmin;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +19,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('auth.login');
-});
+});*/
 
 Route::controller(FrontendController::class)->group(function(){
-    Route::get('/home' , 'index');
+    Route::get('/' , 'index');
     Route::get('/privacy-policy', 'terme')->name('privacy-policy');
 });
 
@@ -40,7 +41,7 @@ Route::controller(LoginController::class)->group(function(){
 
 Auth::routes();
 
-Route::prefix('admin')->middleware(['auth'])->group(function(){
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function(){
     // Route Dashboard
     Route::controller(DashbordController::class)->group(function () {
 
