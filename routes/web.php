@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashbordController;
+use App\Http\Controllers\Admin\CouleurController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -18,13 +19,9 @@ use App\Http\Middleware\AdminMiddleware\isAdmin;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-/*Route::get('/', function () {
-    return view('auth.login');
-});*/
-
-Route::controller(FrontendController::class)->group(function(){
-    Route::get('/' , 'index');
+Auth::routes();
+Route::controller(FrontendController::class)->group(function () {
+    Route::get('/', 'index');
     Route::get('/privacy-policy', 'terme')->name('privacy-policy');
 });
 
@@ -35,17 +32,18 @@ Route::controller(RegisterController::class)->group(function () {
 
 
 // Route Login
-Route::controller(LoginController::class)->group(function(){
-    Route::get('login','index')->name('login');
+Route::controller(LoginController::class)->group(function () {
+    Route::get('login', 'index')->name('login');
 });
 
-Auth::routes();
-
-Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function(){
-    // Route Dashboard
+// Route Dashboard
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::controller(DashbordController::class)->group(function () {
 
         Route::get('dashboard', 'index')->name('dashboard');
+
+        // Brands Livewire
+        Route::get('/couleurs', [CouleurController::class, 'index'])->name('couleur');
     });
 });
 /*Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/

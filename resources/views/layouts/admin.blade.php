@@ -30,6 +30,8 @@
     <!-- theme core css -->
     <link rel="stylesheet" href="{{ asset('admin/css/styles.css') }}" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    @livewireStyles
 </head>
 
 <body>
@@ -286,6 +288,10 @@
     <script src="{{ asset('admin/js/main.js') }}"></script>
 
     <!-- all js include end -->
+    @yield('scripts')
+
+    @livewireScripts
+    @stack('script')
 </body>
 
 </html>
