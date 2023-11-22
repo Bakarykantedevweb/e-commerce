@@ -1,12 +1,12 @@
 <div>
-    @include('livewire.admin.couleur.modal')
+    @include('livewire.admin.marque.modal')
     <!-- row -->
     <div class="row align-items-center grid-margin">
         <div class="col-12">
             <div class="card card-white">
                 <div class="card-body row align-items-center">
                     <div class="col-12 col-sm">
-                        <h4 class="mb-4 mb-sm-0 text-center text-sm-start">Couleurs</h4>
+                        <h4 class="mb-4 mb-sm-0 text-center text-sm-start">Marques</h4>
                     </div>
 
                     <div class="col-12 col-sm-auto">
@@ -50,7 +50,7 @@
     <!-- end row -->
     @include('layouts.partials.message')
     @include('layouts.partials.error')
-    <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addCouleur">Nouvelle Couleur</button>
+    <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addMarque">Nouvelle Marque</button>
     <!-- row -->
     <div class="row">
         <div class="col-12 grid-margin">
@@ -61,8 +61,7 @@
                             <thead class="bg-light">
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col">Nom Couleur</th>
-                                    <th scope="col">Code couleur</th>
+                                    <th scope="col">Nom</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
@@ -70,19 +69,18 @@
                             @php
                                 $key = 1;
                             @endphp
-                            @forelse ($couleurs as $items)
+                            @forelse ($marques as $items)
                                 <tr>
                                     <td>{{ $key++}}</td>
-                                    <td>{{ $items->name }}</td>
-                                    <td>{{ $items->code }}</td>
+                                    <td>{{ $items->nom }}</td>
                                     <td>
-                                        <a href="#" wire:click="editCouleur('{{ encrypt($items->id) }}')" data-bs-toggle="modal" data-bs-target="#addCouleur" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                        <a href="#" wire:click="deleteCouleur('{{ encrypt($items->id) }}')" data-bs-toggle="modal" data-bs-target="#deleteCouleur" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a href="#" wire:click="editMarque('{{ encrypt($items->id) }}')" data-bs-toggle="modal" data-bs-target="#addMarque" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                        <a href="#" wire:click="deleteMarque('{{ encrypt($items->id) }}')" data-bs-toggle="modal" data-bs-target="#deleteMarque" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4" class="text-center">Pas de Couleurs</td>
+                                    <td colspan="4" class="text-center">Pas de Marques</td>
                                 </tr>
                             @endforelse
                             </tbody>

@@ -1,25 +1,18 @@
-    <div wire:ignore.self class="modal fade" id="addCouleur" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div wire:ignore.self class="modal fade" id="addMarque" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ $couleur_id ? 'Modifier' : 'Nouvelle Couleur' }}</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">{{ $marque_id ? 'Modifier' : 'Nouvelle Marque' }}</h5>
                     <button type="button" wire:click="closeModal" class="btn-close" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
-                <form wire:submit.prevent="SaveCouleur">
+                <form wire:submit.prevent="SaveMarque">
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label>Nom Couleur</label>
+                            <label>Nom Marque</label>
                             <input type="text" wire:model.defer="nom" class="form-control">
                             @error('nom')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label>Code Couleur</label>
-                            <input type="text" wire:model.defer="code" class="form-control">
-                            @error('code')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
@@ -35,18 +28,18 @@
     </div>
 
 
-        <div wire:ignore.self class="modal fade" id="deleteCouleur" tabindex="-1" aria-labelledby="exampleModalLabel"
+        <div wire:ignore.self class="modal fade" id="deleteMarque" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Suppression de la couleur</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Suppression de la Marque</h5>
                     <button type="button" wire:click="closeModal" class="btn-close" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
-                <form wire:submit.prevent="DestroyCouleur">
+                <form wire:submit.prevent="DestroyMarque">
                     <div class="container">
-                        <h5>Etes-vous de vouloir supprimer cette couleur ??</h5>
+                        <h5>Etes-vous de vouloir supprimer cette Marque ??</h5>
                     </div>
                     <div class="modal-footer">
                         <button type="button" wire:click="closeModal" class="btn btn-secondary"

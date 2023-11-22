@@ -48,6 +48,18 @@ class Index extends Component
         }
     }
 
+    public function deleteCouleur($id)
+    {
+        $this->couleur_id = decrypt($id);
+    }
+
+    public function DestroyCouleur()
+    {
+        Couleur::where('id', $this->couleur_id)->delete();
+        toastr()->success('Operation effectue avec success');
+        $this->dispatchBrowserEvent('close-modal');
+    }
+
     public function closeModal()
     {
         $this->resetInput();
