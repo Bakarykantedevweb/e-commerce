@@ -11,7 +11,7 @@
                     <a href="{{ route('dashboard') }}"> <i class="menu-icon fas fa-dashboard"></i><span>Dashboard</span> </a>
                 </li>
                 <li>
-                    <a href=""> <i class="menu-icon fa-brands fa-bandcamp"></i><span>Marques</span> </a>
+                    <a href="{{ route('marque') }}"> <i class="menu-icon fa-brands fa-bandcamp"></i><span>Marques</span> </a>
                 </li>
                 <li>
                     <a href="{{ route('couleur') }}"> <i class="menu-icon fas fa-droplet"></i><span>Couleurs</span> </a>

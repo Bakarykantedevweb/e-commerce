@@ -1,13 +1,13 @@
 @extends('layouts.admin')
-@section('title','Couleur')
+@section('title','Marque')
 @section('content')
-    <livewire:admin.couleur.index>
+    <livewire:admin.marque.index>
 @endsection
 @push('script')
     <script>
         window.addEventListener('close-modal' , event => {
-            $('#addCouleur').modal('hide');
-            $('#deleteCouleur').modal('hide');
+            $('#addMarque').modal('hide');
+            $('#deleteMarque').modal('hide');
         });
     </script>
 @endpush
