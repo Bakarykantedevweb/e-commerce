@@ -44,6 +44,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
         // Brands Livewire
         Route::get('/couleurs', [CouleurController::class, 'index'])->name('couleur');
+
+        //Route Categories
+        Route::get('/categories', [\App\Http\Controllers\Admin\CategorieController::class, 'index'])->name('categories.index');
     });
 });
 /*Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/
