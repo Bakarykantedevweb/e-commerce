@@ -59,6 +59,7 @@ class Index extends Component
         $this->code = '';
     }
 
+
     public function render()
     {
         $this->couleurs = Couleur::get();
