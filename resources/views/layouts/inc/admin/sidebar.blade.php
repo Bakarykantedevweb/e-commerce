@@ -17,7 +17,7 @@
                     <a href="{{ route('couleur') }}"> <i class="menu-icon fas fa-droplet"></i><span>Couleurs</span> </a>
                 </li>
                 <li>
-                    <a href=""> <i class="menu-icon fa-solid fa-list"></i><span>Categories</span> </a>
+                    <a href="{{ route('categories.index') }}"> <i class="menu-icon fa-solid fa-list"></i><span>Categories</span> </a>
                 </li>
                 <li>
                     <a href=""> <i class="menu-icon fa-solid fa-list"></i><span>Produits</span> </a>

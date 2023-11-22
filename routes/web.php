@@ -48,6 +48,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
         // Couleur Livewire
         Route::get('/marques', [MarqueController::class, 'index'])->name('marque');
+        //Route Categories
+        Route::get('/categories', [\App\Http\Controllers\Admin\CategorieController::class, 'index'])->name('categories.index');
     });
 });
 /*Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/
