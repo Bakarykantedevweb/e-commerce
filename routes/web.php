@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashbordController;
 use App\Http\Controllers\Admin\CouleurController;
+use App\Http\Controllers\Admin\MarqueController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -42,9 +43,11 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
         Route::get('dashboard', 'index')->name('dashboard');
 
-        // Brands Livewire
+        // Couleur Livewire
         Route::get('/couleurs', [CouleurController::class, 'index'])->name('couleur');
 
+        // Couleur Livewire
+        Route::get('/marques', [MarqueController::class, 'index'])->name('marque');
         //Route Categories
         Route::get('/categories', [\App\Http\Controllers\Admin\CategorieController::class, 'index'])->name('categories.index');
     });
